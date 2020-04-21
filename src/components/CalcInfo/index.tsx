@@ -69,30 +69,30 @@ export default class CalcInfo extends React.Component<Irpf, Irpf> {
 
             {this.state.data.valorFaixa075
             ?
-              <Text style={styles.accordionText}>Faixa 0.75: R$ {this.state.data.valorFaixa075.toFixed(2)}</Text>
+              <Text style={styles.accordionText}>Faixa 7.5%: R$ {this.state.data.valorFaixa075.toFixed(2)}</Text>
             :
-              <Text style={styles.accordionText}>Faixa 0.75: ISENTO</Text>
+              <Text style={styles.accordionText}>Faixa 7.5%: ISENTO</Text>
             }
             
             {this.state.data.valorFaixa150
             ?
-              <Text style={styles.accordionText}>Faixa 1.50: R$ {this.state.data.valorFaixa150.toFixed(2)}</Text>
+              <Text style={styles.accordionText}>Faixa 15%: R$ {this.state.data.valorFaixa150.toFixed(2)}</Text>
             :
-              <Text style={styles.accordionText}>Faixa 1.50: ISENTO</Text>
+              <Text style={styles.accordionText}>Faixa 15%: ISENTO</Text>
             }
 
             {this.state.data.valorFaixa225
             ?
-              <Text style={styles.accordionText}>Faixa 2.25: R$ {this.state.data.valorFaixa225.toFixed(2)}</Text>
+              <Text style={styles.accordionText}>Faixa 22.5%: R$ {this.state.data.valorFaixa225.toFixed(2)}</Text>
             :
-              <Text style={styles.accordionText}>Faixa 2.25: ISENTO</Text>
+              <Text style={styles.accordionText}>Faixa 22.5%: ISENTO</Text>
             }
             
             {this.state.data.valorFaixa275
             ?
-              <Text style={styles.accordionText}>Faixa 2.75: R$ {this.state.data.valorFaixa275.toFixed(2)}</Text>
+              <Text style={styles.accordionText}>Faixa 27.5%: R$ {this.state.data.valorFaixa275.toFixed(2)}</Text>
             :
-              <Text style={styles.accordionText}>Faixa 2.75: ISENTO</Text>
+              <Text style={styles.accordionText}>Faixa 27.5%: ISENTO</Text>
             }
 
             {this.state.data.totalAPagar

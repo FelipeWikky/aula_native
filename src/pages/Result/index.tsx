@@ -53,7 +53,7 @@ export default class Result extends React.Component<any, State>{
               Olá, {this.state.name}
             </Text>
             <Text style={[styles.text, styles.textAnnualGain]}>
-              Ganho Anual informado: {this.state.ganhoAnual.toFixed(2)}
+              Ganho Anual informado: R$ {this.state.ganhoAnual.toFixed(2)}
             </Text>
 
           </View>
@@ -69,7 +69,7 @@ export default class Result extends React.Component<any, State>{
               ?
               <View style={styles.card}>
                 <Text style={styles.text}>
-                  Faixa 0.75: R${this.state.valorFaixa075?.toFixed(2)}
+                  Faixa 7.5%: R${this.state.valorFaixa075?.toFixed(2)}
                 </Text>
               </View>
               :
@@ -80,7 +80,7 @@ export default class Result extends React.Component<any, State>{
               ?
               <View style={styles.card}>
                 <Text style={styles.text}>
-                  Faixa 1.50: R$ {this.state.valorFaixa150?.toFixed(2)}
+                  Faixa 15%: R$ {this.state.valorFaixa150?.toFixed(2)}
                 </Text>
               </View>
               :
@@ -91,7 +91,7 @@ export default class Result extends React.Component<any, State>{
               ?
               <View style={styles.card}>
                 <Text style={styles.text}>
-                  Faixa 2.25: R${this.state.valorFaixa225?.toFixed(2)}
+                  Faixa 22.5%: R${this.state.valorFaixa225?.toFixed(2)}
                 </Text>
               </View>
               :
@@ -103,7 +103,7 @@ export default class Result extends React.Component<any, State>{
               ?
               <View style={styles.card}>
                 <Text style={styles.text}>
-                  Faixa 2.75: R${this.state.valorFaixa275?.toFixed(2)}
+                  Faixa 27.5%: R${this.state.valorFaixa275?.toFixed(2)}
                 </Text>
               </View>
               :
