@@ -32,6 +32,11 @@ export default RN.StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
+  inputError: {
+    color:'#F00',
+    fontWeight:'bold',
+    textAlign:'center',
+  },
   button: {
     marginTop: 10,
     borderWidth: 1,
