@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import { useIsFocused } from '@react-navigation/native';
 
 import HomeView from './view';
 import HomeInterface from './interface';
@@ -43,7 +44,9 @@ export default class Home extends React.Component<any, Irpf> implements HomeInte
     }
   }
 
-  async componentDidMount() {   
+
+  async componentDidMount() {  
+    console.log('voltou pra ca') 
     try {
       //const response = await database.query(sql`create table if not exists irpf(id integer primary key, name varchar(30), ganhoAnual decimal, faixaIsento decimal default 0, faixa075 decimal default 0, faixa150 decimal default 0, faixa225 decimal default 0, faixa275 decimal default 0, totalAPagar decimal default 0)`);
       const dropTableIrpf = await database.query(sql`drop table if exists irpf;`);
@@ -58,8 +61,10 @@ export default class Home extends React.Component<any, Irpf> implements HomeInte
   }
 
   handleNavigate(namePage: string | null) {
-    if (namePage) {
+    if (namePage && namePage !== '') {
       this.props.navigation.navigate(namePage);
+    } else {
+      this.props.navigation.goBack();
     }
   }
 
@@ -107,8 +112,13 @@ interface Props {
 }
 
 const HomeRender = (props:Props) => {
-  const {setTitleHeader} = useContext(HeaderContext);
-  setTitleHeader('Calcular IR');
+  const isFocused = useIsFocused();
+  if (isFocused) {
+    const {setTitleHeader, showBackButton} = useContext(HeaderContext);
+    setTitleHeader('Calcular IR');
+    showBackButton(false);
+  }
+
 
   return(
     <HomeView master={props.class} />

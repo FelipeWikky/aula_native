@@ -1,4 +1,3 @@
-
 type Irpf = {
   pagou?: [any],
   name: string,

@@ -1,24 +1,28 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
 
-import styles from './styles';
+import ResultView from './view';
+import ResultInterface from './interface';
 
-import Header from '../../components/Header';
+import HeaderContext from '../../contexts/HeaderContext';
 
-type State = {
-  pagou: [any],
+type Irpf = {
+  pagou?: [any],
   name: string,
-  ganhoAnual: number,
+  gain: number,
+  gastoEduc?: number,
+  gastoSaude?: number,
+  gastoDeduc?: number,
   valorFaixaIsento?: number,
   valorFaixa075?: number,
   valorFaixa150?: number,
   valorFaixa225?: number,
   valorFaixa275?: number,
-  totalAPagar?: number
+  totalAPagar?: number,
 
+  // [props: string]: any
 }
 
-export default class Result extends React.Component<any, State>{
+export default class Result extends React.Component<any, Irpf> implements ResultInterface {
   constructor(props: any) {
     super(props);
 
@@ -26,8 +30,10 @@ export default class Result extends React.Component<any, State>{
       valorFaixaIsento, valorFaixa075, valorFaixa150, valorFaixa225, valorFaixa275,
       totalAPagar } = props.route.params;
 
+    const data: Irpf = props.route.params;
+
     this.state = {
-      pagou, name: nome, ganhoAnual,
+      pagou, name: nome, gain: ganhoAnual,
       valorFaixaIsento,
       valorFaixa075,
       valorFaixa150,
@@ -39,96 +45,24 @@ export default class Result extends React.Component<any, State>{
 
   render(): React.ReactNode {
     return (
-      <>
-        <Header
-          title='Cálculo Realizado'
-          isShowBackButton={true}
-        //navigation={this.props.navigation}
-        />
-        <View style={styles.container}>
-
-          <View style={styles.info}>
-
-            <Text style={[styles.text, styles.textName]}>
-              Olá, {this.state.name}
-            </Text>
-            <Text style={[styles.text, styles.textAnnualGain]}>
-              Ganho Anual informado: R$ {this.state.ganhoAnual.toFixed(2)}
-            </Text>
-
-          </View>
-
-          <View>
-            <View style={styles.card}>
-              <Text style={styles.text}>
-                Faixa Isento: R$ {this.state.valorFaixaIsento?.toFixed(2)}
-              </Text>
-            </View>
-
-            {this.state.valorFaixa075
-              ?
-              <View style={styles.card}>
-                <Text style={styles.text}>
-                  Faixa 7.5%: R${this.state.valorFaixa075?.toFixed(2)}
-                </Text>
-              </View>
-              :
-              null
-            }
-
-            {this.state.valorFaixa150
-              ?
-              <View style={styles.card}>
-                <Text style={styles.text}>
-                  Faixa 15%: R$ {this.state.valorFaixa150?.toFixed(2)}
-                </Text>
-              </View>
-              :
-              null
-            }
-
-            {this.state.valorFaixa225
-              ?
-              <View style={styles.card}>
-                <Text style={styles.text}>
-                  Faixa 22.5%: R${this.state.valorFaixa225?.toFixed(2)}
-                </Text>
-              </View>
-              :
-              null
-
-            }
-
-            {this.state.valorFaixa275
-              ?
-              <View style={styles.card}>
-                <Text style={styles.text}>
-                  Faixa 27.5%: R${this.state.valorFaixa275?.toFixed(2)}
-                </Text>
-              </View>
-              :
-              null
-            }
-
-          </View>
-
-          <View style={[styles.card, {marginBottom:30}]}>
-            <Text style={styles.text}>
-              {this.state.totalAPagar
-                ?
-                <Text style={styles.text}>
-                  Valor Total a Pagar: R${this.state.totalAPagar?.toFixed(2)}
-                </Text>
-                :
-                <Text style={styles.text}>
-                  Este ano (in)felizmente, não precisará pagar.
-                </Text>
-              }
-            </Text>
-          </View>
-
-        </View>
-      </>
+      // <ResultView master={this} />
+      <ResultRender class={this}/>
     );
   }
 }
+
+interface Props {
+  class: ResultInterface;
+}
+
+const ResultRender = (props:Props) => {
+  const {setTitleHeader, showBackButton} = React.useContext(HeaderContext);
+  setTitleHeader('Cálculo de ' + props.class.state.name);
+  showBackButton(true);
+
+  return(
+    <ResultView master={props.class}/>
+  );
+}
+
+

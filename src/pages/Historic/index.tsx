@@ -2,8 +2,9 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 
 import styles from '../Historic/styles';
-import Header from '../../components/Header';
 import CalcInfo from '../../components/CalcInfo';
+
+import HeaderContext from '../../contexts/HeaderContext';
 
 import GenerateId from '../../utils/GenerateId';
 
@@ -22,26 +23,26 @@ type Irpf = {
 export default class Historic extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state={
-      data:[]
+    this.state = {
+      data: []
     }
   }
   componentDidMount() {
     const data = [
       {
-        id:GenerateId(),
+        id: GenerateId(),
         name: 'Felipe',
         ganhoAnual: 12500,
         valorFaixaIsento: 11500,
       },
       {
-        id:GenerateId(),
+        id: GenerateId(),
         name: 'Lucas',
         ganhoAnual: 24510,
         valorFaixaIsento: 22304.10,
       },
       {
-        id:GenerateId(),
+        id: GenerateId(),
         name: 'Maurício',
         ganhoAnual: 41654,
         valorFaixaIsento: 22847.76,
@@ -52,7 +53,7 @@ export default class Historic extends React.Component<any, any> {
       },
       {
         id: GenerateId(),
-        name: 'Alfonso',
+        name: 'Afonso',
         ganhoAnual: 62141,
         valorFaixaIsento: 22847.76,
         valorFaixa075: 11072.04,
@@ -62,7 +63,7 @@ export default class Historic extends React.Component<any, any> {
       },
       {
         id: GenerateId(),
-        name: 'Drake',
+        name: 'João',
         ganhoAnual: 87989,
         valorFaixaIsento: 22847.86,
         valorFaixa075: 11072.04,
@@ -73,28 +74,34 @@ export default class Historic extends React.Component<any, any> {
       },
     ];
 
-    this.setState({data});
+    this.setState({ data });
   }
 
   render(): React.ReactNode {
 
     return (
-      <>
-        <Header title='Histórico de Cálculos'  isShowBackButton={true} />
-
-        <View style={styles.container}>
-          <FlatList
-            data={this.state.data}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-            renderItem={({item}) => (
-              <View style={styles.infoContainer}>
-                <CalcInfo data={item} />
-              </View>
-            )}
-          />
-        </View>
-      </>
+      <ResultRender data={this.state.data} />
     );
   }
+}
+
+const ResultRender = (props: any) => {
+  const {setTitleHeader, showBackButton} = React.useContext(HeaderContext);
+  setTitleHeader('Histórico de Cálculos');
+  showBackButton(true);
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={props.data}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <View style={styles.infoContainer}>
+            <CalcInfo data={item} />
+          </View>
+        )}
+      />
+    </View>
+  );
 }

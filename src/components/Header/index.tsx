@@ -16,7 +16,7 @@ type Props = {
 export default function Header(props:Props){
   const navigation = useNavigation();
 
-  const {title} = useContext(HeaderContext);
+  const {title, backButton} = useContext(HeaderContext);
   
 
   function handleGoBack() : void{
@@ -25,7 +25,7 @@ export default function Header(props:Props){
   return (
     <View style={styles.container}>
       {
-        props.isShowBackButton
+        backButton//props.isShowBackButton
           ?
           <TouchableWithoutFeedback
             onPress={handleGoBack}

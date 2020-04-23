@@ -54,10 +54,10 @@ export default class HomeView extends Component<{ master: HomeInterface }, State
 
         //Chama função para calcular
         master.handleCalculate();
+
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           var errors: Array<Object> = [{}, {}, {}, {}, {}];
-          //var nameErrors: Array<Object> = [{}, {}, {}, {}, {}];
           var nameErrors:Array<any> = [];
 
           err.errors.forEach(err => {
@@ -69,6 +69,7 @@ export default class HomeView extends Component<{ master: HomeInterface }, State
             }
 
           });
+
           this.setState({ ...this.state, inputError: errors, messageError: nameErrors });
         } else {
           console.log(err);
@@ -79,11 +80,6 @@ export default class HomeView extends Component<{ master: HomeInterface }, State
 
     return (
       <>
-        <Header
-          title='Calcular IR'
-          isShowBackButton={false}
-        />
-
         <View style={styles.container}>
 
           <View style={styles.formContainer}>

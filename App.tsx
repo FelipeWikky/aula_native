@@ -6,11 +6,11 @@ import Routes from './src/routes';
 import { HeaderProvider } from './src/contexts/HeaderContext';
 
 export default class App extends React.Component<any, any>{
-  render():React.ReactNode {
-    return(
+  render(): React.ReactNode {
+    return (
       <NavigationContainer>
         <HeaderProvider>
-          <Routes/>
+          <Routes />
         </HeaderProvider>
       </NavigationContainer>
     );
