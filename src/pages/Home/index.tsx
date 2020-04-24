@@ -7,7 +7,7 @@ import HomeInterface from './interface';
 import HeaderContext from '../../contexts/HeaderContext';
 
 import api from '../../services/api';
-
+import Storage from '../../database/storage';
 // import getConnection from '../../database/connection';
 // const connection = getConnection('irpf');
 // const database = connection.database;
@@ -46,7 +46,6 @@ export default class Home extends React.Component<any, Irpf> implements HomeInte
 
 
   async componentDidMount() {  
-    console.log('voltou pra ca') 
     try {
       //const response = await database.query(sql`create table if not exists irpf(id integer primary key, name varchar(30), ganhoAnual decimal, faixaIsento decimal default 0, faixa075 decimal default 0, faixa150 decimal default 0, faixa225 decimal default 0, faixa275 decimal default 0, totalAPagar decimal default 0)`);
       const dropTableIrpf = await database.query(sql`drop table if exists irpf;`);
@@ -72,18 +71,21 @@ export default class Home extends React.Component<any, Irpf> implements HomeInte
   async handleCalculate(obj:Irpf):Promise<void> {
     try {
       //GET Method
-      const response = await api.get(`/irpf/${this.state.gain}/${this.state.name}`);
-      const data: Irpf = await response.data;
+      // const response = await api.get(`/irpf/${this.state.gain}/${this.state.name}`);
+      // const data: Irpf = await response.data;
       // console.log(data);
 
       //POST Method
-      // const body = { name, gain }
-      // const response = await api.post('/irpf', this.state);
-      // const data = await response.data;
-      
+      const response = await api.post('/irpf', this.state);
+      const data = await response.data;
 
-      //Enviar para próxima tela com o dados
-      this.props.navigation.navigate('Result', data);
+      //Salvar informações
+      const saved = await Storage.save(data);
+
+      if (saved) {
+        //Enviar para próxima tela com o dados
+        this.props.navigation.navigate('Result', data);
+      }
 
     } catch (err) {
       console.log(err);

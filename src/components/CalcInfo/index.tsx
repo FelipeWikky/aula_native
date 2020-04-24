@@ -7,7 +7,7 @@ import styles from './styles';
 type Irpf = {
   data: {
     pagou: [any],
-    name: string,
+    nome: string,
     ganhoAnual: number,
     valorFaixaIsento?: number,
     valorFaixa075?: number,
@@ -38,7 +38,7 @@ export default class CalcInfo extends React.Component<Irpf, Irpf> {
 
             <View style={styles.infosContainer}>
               <Text style={styles.textName}>
-                Nome: {this.state.data.name}
+                Nome: {this.state.data.nome}
               </Text>
               <Text style={styles.textAnnualGain}>
                 Ganho Anual: R$ {this.state.data.ganhoAnual}

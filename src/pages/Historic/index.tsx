@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Button, AsyncStorage } from 'react-native';
 
 import styles from '../Historic/styles';
 import CalcInfo from '../../components/CalcInfo';
 
 import HeaderContext from '../../contexts/HeaderContext';
+
+import Storage from '../../database/storage';
 
 import GenerateId from '../../utils/GenerateId';
 
@@ -27,52 +29,8 @@ export default class Historic extends React.Component<any, any> {
       data: []
     }
   }
-  componentDidMount() {
-    const data = [
-      {
-        id: GenerateId(),
-        name: 'Felipe',
-        ganhoAnual: 12500,
-        valorFaixaIsento: 11500,
-      },
-      {
-        id: GenerateId(),
-        name: 'Lucas',
-        ganhoAnual: 24510,
-        valorFaixaIsento: 22304.10,
-      },
-      {
-        id: GenerateId(),
-        name: 'Maurício',
-        ganhoAnual: 41654,
-        valorFaixaIsento: 22847.76,
-        valorFaixa075: 11072.04,
-        valorFaixa150: 3152.26,
-        valorFaixa225: 10292.89,
-        totalAPagar: 4810.22
-      },
-      {
-        id: GenerateId(),
-        name: 'Afonso',
-        ganhoAnual: 62141,
-        valorFaixaIsento: 22847.76,
-        valorFaixa075: 11072.04,
-        valorFaixa150: 11092.80,
-        valorFaixa225: 10292.89,
-        totalAPagar: 1303.24
-      },
-      {
-        id: GenerateId(),
-        name: 'João',
-        ganhoAnual: 87989,
-        valorFaixaIsento: 22847.86,
-        valorFaixa075: 11072.04,
-        valorFaixa150: 11092.80,
-        valorFaixa225: 10963.56,
-        valorFaixa275: 23662.43,
-        totalAPagar: 11468.29
-      },
-    ];
+  async componentDidMount() {
+    const data = await Storage.getAll();
 
     this.setState({ data });
   }
@@ -92,6 +50,7 @@ const ResultRender = (props: any) => {
 
   return (
     <View style={styles.container}>
+      <Button title='Limpar Lista' onPress={() => Storage.clean() } />
       <FlatList
         data={props.data}
         showsHorizontalScrollIndicator={false}
