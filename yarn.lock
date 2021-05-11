@@ -924,6 +924,28 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@databases/expo@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@databases/expo/-/expo-4.0.0.tgz#db6ca283f78f7c78ac80a3ef0ea0ae6d25de3430"
+  integrity sha512-+75sUvP2qrZsygl0jtj9igeZbq4eZy+TvOfYK7A+TJKSkyo0Yv7F8FpIl1MCAxeSFJJFdsCMWHQ0JXiq0kOODg==
+  dependencies:
+    "@databases/websql-core" "^3.0.1"
+
+"@databases/sql@^2.1.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@databases/sql/-/sql-2.2.0.tgz#16f0940ebb2cf990ba07f5ac5c6b5b9c2187fb87"
+  integrity sha512-g4UjsHP7VGpDyjvovBrCVPpJOUQohT2RUABJvbFieUvEnZ0nrq0c4aD65df4/hlQasRkiLqvSZjkdjEjB41gHg==
+  dependencies:
+    pg-minify "^0.5.5"
+
+"@databases/websql-core@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@databases/websql-core/-/websql-core-3.0.1.tgz#c6fde4a3e997a4b70a0cf4a468a579dd41b293e8"
+  integrity sha512-jXjo5hYGigA/XOp+mzKcrQoEODzhPHCviTlLbx+YRSM8nggh6a+sYslClGU8IQdPp6pUcUyt0Rkny8iXh5YeMQ==
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    "@databases/sql" "^2.1.0"
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -3240,9 +3262,9 @@ hoist-non-react-statics@^2.3.1:
   integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
 hosted-git-info@^2.1.4:
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
-  integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 http-basic@^2.5.1:
   version "2.5.1"
@@ -4814,6 +4836,11 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+pg-minify@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/pg-minify/-/pg-minify-0.5.5.tgz#6c961a61aa19f469d8edfe5a3c0da58760f3c339"
+  integrity sha512-7Pf9h6nV1RFqED1hkRosePqvpPwNUUtW06TT4+lHwzesxa5gffxkShTjYH6JXV5sSSfh5+2yHOTTWEkCyCQ0Eg==
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
