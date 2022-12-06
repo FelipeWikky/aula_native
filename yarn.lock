@@ -924,6 +924,28 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@databases/expo@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@databases/expo/-/expo-4.0.0.tgz#db6ca283f78f7c78ac80a3ef0ea0ae6d25de3430"
+  integrity sha512-+75sUvP2qrZsygl0jtj9igeZbq4eZy+TvOfYK7A+TJKSkyo0Yv7F8FpIl1MCAxeSFJJFdsCMWHQ0JXiq0kOODg==
+  dependencies:
+    "@databases/websql-core" "^3.0.1"
+
+"@databases/sql@^2.1.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@databases/sql/-/sql-2.2.0.tgz#16f0940ebb2cf990ba07f5ac5c6b5b9c2187fb87"
+  integrity sha512-g4UjsHP7VGpDyjvovBrCVPpJOUQohT2RUABJvbFieUvEnZ0nrq0c4aD65df4/hlQasRkiLqvSZjkdjEjB41gHg==
+  dependencies:
+    pg-minify "^0.5.5"
+
+"@databases/websql-core@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@databases/websql-core/-/websql-core-3.0.1.tgz#c6fde4a3e997a4b70a0cf4a468a579dd41b293e8"
+  integrity sha512-jXjo5hYGigA/XOp+mzKcrQoEODzhPHCviTlLbx+YRSM8nggh6a+sYslClGU8IQdPp6pUcUyt0Rkny8iXh5YeMQ==
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    "@databases/sql" "^2.1.0"
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -4815,6 +4837,11 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
+pg-minify@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/pg-minify/-/pg-minify-0.5.5.tgz#6c961a61aa19f469d8edfe5a3c0da58760f3c339"
+  integrity sha512-7Pf9h6nV1RFqED1hkRosePqvpPwNUUtW06TT4+lHwzesxa5gffxkShTjYH6JXV5sSSfh5+2yHOTTWEkCyCQ0Eg==
+
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -4986,9 +5013,9 @@ qs@^6.1.0, qs@^6.5.0:
   integrity sha512-EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 query-string@^6.12.0:
   version "6.12.1"
